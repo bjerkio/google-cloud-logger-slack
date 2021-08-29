@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "module": "es2020",
+    "declaration": true,
+    "noImplicitAny": false,
+    "importHelpers": true,
+    "removeComments": true,
+    "noLib": false,
+    "moduleResolution": "node",
+    "target": "es2015",
+    "sourceMap": false,
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "esModuleInterop": true,
+    "skipLibCheck": true
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "**/*.spec.ts"]
+}

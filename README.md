@@ -20,6 +20,7 @@
 
 ---
 
+[![lifecycle](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg?style=flat-square)](http://commitizen.github.io/cz-cli/)
 ![Release](https://github.com/bjerkio/gcl-slack/workflows/Release/badge.svg)
@@ -28,10 +29,10 @@
 [![codecov](https://codecov.io/gh/bjerkio/gcl-slack/branch/main/graph/badge.svg)](https://codecov.io/gh/bjerkio/gcl-slack)
 [![Maintainability](https://api.codeclimate.com/v1/badges/abaf7c9907eccc452518/maintainability)](https://codeclimate.com/github/bjerkio/gcl-slack/maintainability)
 
-**gcl-slack** is built to consume logs in Google Cloud Logger and forward to
-Slack. You can use this library to let your team know a something happened in
-your app, if an exception is thrown or use the special [slack object] to send
-[slack blocks] to remove requests to Slack from your production load.
+**gcl-slack** consumes logs from Google Cloud Logger and forwards them to Slack.
+Use this library to let your team know something happened in your app, an
+exception is thrown or use the special [slack object] to turn structured logs to
+well-formatted Slack messages.
 
 [slack object]: #
 [slack blocks]: https://api.slack.com/block-kit
@@ -60,21 +61,23 @@ forward log entries to `gcl-slack`.
 [sink]: https://cloud.google.com/logging/docs/export/configure_export_v2
 [search query]: https://cloud.google.com/logging/docs/view/advanced-queries
 
-### _Offload Requests_ to Slack API
+### Turn structured logs to well-formatted Slack messages
 
-This package is designed to solve two issues, a) forward information from Cloud
-Logger and b) offload requests to Slack API.
+This package solves two issues, a) forwarding information from Cloud Logger to
+Slack and b) offload requests to Slack API / webhooks.
 
-Sometimes we want to be notified on Slack when something happends, let's say a
-user is created or a customer subscribed to your service. Since we have a
-state-of-the-art logging system listening in on the application outputs we can
-output a message or even better a JSON object. This object is dumped to Cloud
-Logger, which you create a [sink]s to route log entries to this library. This
-library can consume what we call [slack object]s, which is basicly the same as
-you would send to either the Slack API or webhook.
+Sometimes we want to be notified on Slack when something happens – let's say a
+user is created or a customer subscribed to your service. Since out the output
+of our application is hooked into Cloud Logging, we can output a message or a
+JSON object (structured logging). With a sink, we can route log entites to this
+library through Google PubSub.
 
-The result is that your Kubernetes Pod, Cloud Run or Cloud Functions instance
-can dump a simple JSON object to the log and your team can see it in a channel.
+To create more than just a simple message, you can use [slack object]s, which is
+the same as you would send to either the Slack API or webhooks to create
+well-formatted slack messages.
+
+Let your Kubernetes Pod, Cloud Run or Cloud Functions focus on core business,
+and let distribute your logging to Slack with this library!
 
 [pulumi-callback]:
   https://www.pulumi.com/blog/simple-serverless-programming-with-google-cloud-functions-and-pulumi/
