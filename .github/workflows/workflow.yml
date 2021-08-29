@@ -16,10 +16,10 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
           cache: yarn
       - run: yarn install
-      - run: yarn run build
       - run: yarn test
         env:
           CI: true
+      - run: yarn run build
       - uses: codecov/codecov-action@v2
       - uses: GoogleCloudPlatform/release-please-action@v2.29.2
         id: release
