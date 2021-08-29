@@ -7,7 +7,7 @@
 </p>
 
 <p align="center">
-    Transport messages (and objects) from Slack to Google Cloud Logging
+    Transport messages (and objects) from Google Cloud Logging to Slack
     <br />
     <br />
     <a href="#space_invader--usage">Quick Start Guide</a>
