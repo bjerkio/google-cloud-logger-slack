@@ -79,3 +79,8 @@ can dump a simple JSON object to the log and your team can see it in a channel.
 [pulumi-callback]:
   https://www.pulumi.com/blog/simple-serverless-programming-with-google-cloud-functions-and-pulumi/
 [firebase]: https://firebase.google.com/docs/functions/get-started
+
+## Contribute & Disclaimer
+
+We love to get help 🙏 Read more about how to get started in
+[CONTRIBUTING](CONTRIBUTING.md) 🌳
