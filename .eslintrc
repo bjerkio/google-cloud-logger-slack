@@ -1,0 +1,3 @@
+{
+  "extends": ["@bjerk/eslint-config"]
+}
