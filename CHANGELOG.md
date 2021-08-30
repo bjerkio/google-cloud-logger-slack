@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.1.0](https://www.github.com/bjerkio/gcl-slack/compare/v1.0.0...v1.1.0) (2021-08-30)
+
+
+### Features
+
+* Add support for all methods with webhook ([bce20a0](https://www.github.com/bjerkio/gcl-slack/commit/bce20a08e0e6bc3f26e853e52e3586bb8df688f7))
+* support github.com/bjerkio/nestjs-slack@v1 ([4c0a3b0](https://www.github.com/bjerkio/gcl-slack/commit/4c0a3b058075b478e1859c8dcf5eb416418e841d))
+
 ## 1.0.0 (2021-08-29)
 
 
