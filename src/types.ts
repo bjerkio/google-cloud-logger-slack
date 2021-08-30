@@ -72,13 +72,24 @@ export const LogEntry = rt.Record({
     rt.Literal('ALERT'),
     rt.Literal('EMERGENCY'),
   ),
+  operation: rt.Dictionary(rt.String, rt.String).optional(),
 
   textPayload: rt.String.optional(),
   jsonPayload: rt
     .Record({
       slack: rt.Guard((x): x is SlackMessageRequest => true),
     })
-    .And(rt.Record({ message: rt.String }).asPartial())
+    .And(
+      rt
+        .Record({
+          message: rt.String.Or(
+            rt.Record({
+              slack: rt.Guard((x): x is SlackMessageRequest => true),
+            }),
+          ),
+        })
+        .asPartial(),
+    )
     .And(rt.Unknown)
     .optional(),
 });

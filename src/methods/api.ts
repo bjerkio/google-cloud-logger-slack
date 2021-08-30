@@ -17,9 +17,33 @@ export class SlackApiMethod implements SlackMethod {
       return;
     }
 
-    await this.client.chat.postMessage({
-      channel: this.config.defaultChannel,
-      text: entry.jsonPayload?.message ?? entry.textPayload,
-    });
+    if (
+      entry.operation?.producer === 'github.com/bjerkio/nestjs-slack@v1' &&
+      typeof entry.jsonPayload?.message !== 'string'
+    ) {
+      await this.client.chat.postMessage({
+        channel: this.config.defaultChannel,
+        ...entry.jsonPayload.message.slack,
+      });
+      return;
+    }
+
+    if (
+      entry.jsonPayload?.message &&
+      typeof entry.jsonPayload?.message === 'string'
+    ) {
+      await this.client.chat.postMessage({
+        channel: this.config.defaultChannel,
+        text: entry.jsonPayload?.message,
+      });
+      return;
+    }
+
+    if (entry.textPayload) {
+      await this.client.chat.postMessage({
+        channel: this.config.defaultChannel,
+        text: entry.textPayload,
+      });
+    }
   }
 }
