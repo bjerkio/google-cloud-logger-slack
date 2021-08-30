@@ -1,4 +1,5 @@
 import { WebClient } from '@slack/web-api';
+import { parseLog } from '../parse-log';
 import type { LogEntry, SlackApiOptions, SlackMethod } from '../types';
 
 export class SlackApiMethod implements SlackMethod {
@@ -9,41 +10,10 @@ export class SlackApiMethod implements SlackMethod {
   }
 
   async send(entry: LogEntry): Promise<void> {
-    if (entry.jsonPayload?.slack) {
-      await this.client.chat.postMessage({
-        channel: this.config.defaultChannel,
-        ...entry.jsonPayload.slack,
-      });
-      return;
-    }
-
-    if (
-      entry.operation?.producer === 'github.com/bjerkio/nestjs-slack@v1' &&
-      typeof entry.jsonPayload?.message !== 'string'
-    ) {
-      await this.client.chat.postMessage({
-        channel: this.config.defaultChannel,
-        ...entry.jsonPayload.message.slack,
-      });
-      return;
-    }
-
-    if (
-      entry.jsonPayload?.message &&
-      typeof entry.jsonPayload?.message === 'string'
-    ) {
-      await this.client.chat.postMessage({
-        channel: this.config.defaultChannel,
-        text: entry.jsonPayload?.message,
-      });
-      return;
-    }
-
-    if (entry.textPayload) {
-      await this.client.chat.postMessage({
-        channel: this.config.defaultChannel,
-        text: entry.textPayload,
-      });
-    }
+    const parsedLog = await parseLog(entry);
+    await this.client.chat.postMessage({
+      channel: this.config.defaultChannel,
+      ...parsedLog,
+    });
   }
 }
