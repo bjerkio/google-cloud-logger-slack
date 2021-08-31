@@ -1,6 +1,5 @@
 import * as gcp from "@pulumi/gcp";
 import * as pulumi from "@pulumi/pulumi";
-import { provider } from "../providers/google";
 import { makeHandler } from "gcl-slack";
 import { handlePubSubMessage } from "pubsub-http-handler";
 
