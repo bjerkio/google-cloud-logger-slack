@@ -1,7 +1,6 @@
 import * as gcp from '@pulumi/gcp';
 import * as pulumi from '@pulumi/pulumi';
-import { makeHandler } from 'gcl-slack';
-import { handlePubSubMessage } from 'pubsub-http-handler';
+import { makePulumiCallback } from 'gcl-slack';
 
 const name = 'slack';
 
@@ -15,18 +14,7 @@ topic.onMessagePublished(name, {
   environmentVariables: {
     WEBHOOK_URL: config.require('webhook-url'),
   },
-  callback: async (message) => {
-    const handler = makeHandler({
-      type: 'webhook',
-      webhookOptions: { url: process.env.WEBHOOK_URL ?? '' },
-    });
-
-    await handlePubSubMessage({
-      message,
-      handler,
-      parseJson: true,
-    });
-  },
+  callback: makePulumiCallback('webhook'),
 });
 
 const logSink = new gcp.logging.ProjectSink(name, {
