@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.1.1](https://www.github.com/bjerkio/gcl-slack/compare/v1.1.0...v1.1.1) (2021-09-07)
+
+
+### Bug Fixes
+
+* requests fail (`attributes` is missing) ([0b3689d](https://www.github.com/bjerkio/gcl-slack/commit/0b3689d1446c053823c24998cded28157cc63887))
+
 ## [1.1.0](https://www.github.com/bjerkio/gcl-slack/compare/v1.0.0...v1.1.0) (2021-08-30)
 
 
