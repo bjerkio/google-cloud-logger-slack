@@ -3632,10 +3632,10 @@ psl@^1.1.33:
   resolved "https://registry.yarnpkg.com/psl/-/psl-1.8.0.tgz#9326f8bcfb013adcc005fdff056acce020e51c24"
   integrity sha512-RIdOzyoavK+hA18OGGWDqUTsCLhtA7IcZ/6NCs4fFJaHBDab+pDDmDIByWFRQJq2Cd7r1OoQxBGKOaztq+hjIQ==
 
-pubsub-http-handler@^2.1.0:
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/pubsub-http-handler/-/pubsub-http-handler-2.1.0.tgz#1b653d6c390ec558818173f3fded120da412d5bc"
-  integrity sha512-Dy0pFUvS8DsE5uFQ1HwyrcMZMhEoaBbYPqdOrt6VvVxAi/ycAu0KmMXNGcqXRuvquVjyHozYNXYG4Ar6m46o2A==
+pubsub-http-handler@^2.1.1:
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/pubsub-http-handler/-/pubsub-http-handler-2.1.1.tgz#e5791c476b47f7c9114c00eec65e107e1c4c5420"
+  integrity sha512-QuDgZUqU6n7Y0P7iMmJHKh5QonWs+ajEZihGV8m9UrR4iV9x6JVxLjhjAkrmWsZvgifdBdPISk22lUkXC1yPTQ==
   dependencies:
     "@sinclair/typebox" "^0.12.7"
     "@types/express" "^4.17.13"
