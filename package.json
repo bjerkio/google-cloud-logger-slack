@@ -35,7 +35,7 @@
     "@slack/web-api": "^6.4.0",
     "axios": "^0.21.1",
     "fastify": "^3.20.2",
-    "pubsub-http-handler": "^2.1.0",
+    "pubsub-http-handler": "^2.1.2",
     "runtypes": "^6.3.2"
   },
   "lint-staged": {
