@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.2.1](https://www.github.com/bjerkio/gcl-slack/compare/v1.2.0...v1.2.1) (2021-09-15)
+
+
+### Bug Fixes
+
+* Release issues ([6cf7bfd](https://www.github.com/bjerkio/gcl-slack/commit/6cf7bfda45ab247eca4226946ff3e75dd2bb47ea))
+
 ## [1.2.0](https://www.github.com/bjerkio/gcl-slack/compare/v1.1.1...v1.2.0) (2021-09-15)
 
 
