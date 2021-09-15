@@ -1,6 +1,8 @@
 import { LogEntry, SlackMessageRequest } from './types';
 
-export async function parseLog(entry: LogEntry): Promise<SlackMessageRequest> {
+export async function parseLog(
+  entry: LogEntry,
+): Promise<SlackMessageRequest | void> {
   if (entry.jsonPayload?.slack) {
     return entry.jsonPayload.slack;
   }

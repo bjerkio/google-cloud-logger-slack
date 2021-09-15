@@ -9,6 +9,24 @@
   "module": "./dist/index.js",
   "source": "src/index.ts",
   "types": "./dist/index.d.ts",
+  "engines": {
+    "node": ">=10"
+  },
+  "keywords": [
+    "google",
+    "app",
+    "cloud",
+    "logger",
+    "logging",
+    "stackdriver",
+    "cloud-run",
+    "run",
+    "pubsub",
+    "handler",
+    "fastify",
+    "fastify-plugin",
+    "cloud-functions"
+  ],
   "files": [
     "dist/"
   ],
@@ -33,10 +51,12 @@
   "dependencies": {
     "@slack-wrench/jest-mock-web-client": "^1.3.0",
     "@slack/web-api": "^6.4.0",
+    "@tsconfig/node10": "^1.0.8",
     "axios": "^0.21.2",
     "fastify": "^3.21.1",
     "pubsub-http-handler": "^2.1.2",
-    "runtypes": "^6.3.2"
+    "runtypes": "^6.3.2",
+    "ts-invariant": "^0.9.3"
   },
   "lint-staged": {
     "*.ts": [

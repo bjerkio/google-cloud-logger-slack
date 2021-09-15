@@ -12,7 +12,7 @@ export class SlackApiMethod implements SlackMethod {
   async send(entry: LogEntry): Promise<void> {
     const parsedLog = await parseLog(entry);
     await this.client.chat.postMessage({
-      channel: this.config.defaultChannel,
+      channel: this.config.defaultChannel ?? '',
       ...parsedLog,
     });
   }
