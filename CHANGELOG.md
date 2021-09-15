@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.0](https://www.github.com/bjerkio/gcl-slack/compare/v1.1.1...v1.2.0) (2021-09-15)
+
+
+### Features
+
+* Add `makePulumiCallback` ([#5](https://www.github.com/bjerkio/gcl-slack/issues/5)) ([b71b2b8](https://www.github.com/bjerkio/gcl-slack/commit/b71b2b83db51ec018d3c3d64523d2434f4f46db1))
+
 ### [1.1.1](https://www.github.com/bjerkio/gcl-slack/compare/v1.1.0...v1.1.1) (2021-09-07)
 
 
