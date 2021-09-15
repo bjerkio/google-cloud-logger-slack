@@ -49,7 +49,7 @@ well-formatted Slack messages.
 ```
 
 You can deploy however you want, with Pulumi's [Callback
-Function][pulumi-callback] or with [Firebase CLI][firebase].
+Function][pulumi-callback] or with [Firebase CLI][firebase], see the [examples].
 
 **We are currently building this library out, and once things are ready for
 production loads, we'll add tutorials to make it easier to configure this**
@@ -60,6 +60,7 @@ forward log entries to `gcl-slack`.
 
 [sink]: https://cloud.google.com/logging/docs/export/configure_export_v2
 [search query]: https://cloud.google.com/logging/docs/view/advanced-queries
+[examples]: ./examples
 
 ### Turn structured logs to well-formatted Slack messages
 
