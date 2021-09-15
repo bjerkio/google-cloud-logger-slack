@@ -78,7 +78,7 @@ the same as you would send to either the Slack API or webhooks to create
 well-formatted slack messages.
 
 Let your Kubernetes Pod, Cloud Run or Cloud Functions focus on core business,
-and let distribute your logging to Slack with this library!
+and distribute your logging to Slack with this library!
 
 [pulumi-callback]:
   https://www.pulumi.com/blog/simple-serverless-programming-with-google-cloud-functions-and-pulumi/
