@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.2.2](https://www.github.com/bjerkio/gcl-slack/compare/v1.2.1...v1.2.2) (2021-09-15)
+
+
+### Bug Fixes
+
+* require minimum node@v10 ([e3cd75d](https://www.github.com/bjerkio/gcl-slack/commit/e3cd75d52fc57f34506b1bf7f96cd7599f578998))
+
 ### [1.2.1](https://www.github.com/bjerkio/gcl-slack/compare/v1.2.0...v1.2.1) (2021-09-15)
 
 
