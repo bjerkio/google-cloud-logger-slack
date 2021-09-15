@@ -55,7 +55,7 @@
     "axios": "^0.21.2",
     "fastify": "^3.21.1",
     "pubsub-http-handler": "^2.1.2",
-    "runtypes": "^6.3.2",
+    "runtypes": "^6.4.0",
     "ts-invariant": "^0.9.3"
   },
   "lint-staged": {
