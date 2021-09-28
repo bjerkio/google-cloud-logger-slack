@@ -1,6 +1,6 @@
 {
   "name": "gcl-slack",
-  "version": "1.2.2",
+  "version": "1.4.0",
   "private": false,
   "repository": "github:bjerkio/gcl-slack",
   "license": "Apache-2.0",
@@ -38,13 +38,13 @@
   },
   "devDependencies": {
     "@bjerk/eslint-config": "^1.0.0",
-    "@types/jest": "^27.0.1",
+    "@types/jest": "^27.0.2",
     "eslint": "^7.32.0",
     "husky": "^7.0.2",
-    "jest": "^27.2.0",
+    "jest": "^27.2.3",
     "lint-staged": "^11.1.2",
     "nock": "^13.1.3",
-    "prettier": "^2.4.0",
+    "prettier": "^2.4.1",
     "ts-jest": "^27.0.5",
     "typescript": "^3.9"
   },
@@ -52,8 +52,8 @@
     "@slack-wrench/jest-mock-web-client": "^1.3.0",
     "@slack/web-api": "^6.4.0",
     "@tsconfig/node10": "^1.0.8",
-    "axios": "^0.21.2",
-    "fastify": "^3.21.1",
+    "axios": "^0.21.4",
+    "fastify": "^3.21.6",
     "pubsub-http-handler": "^2.1.2",
     "runtypes": "^6.3.2",
     "ts-invariant": "^0.9.3"
