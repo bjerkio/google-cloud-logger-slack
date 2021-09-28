@@ -2,7 +2,7 @@ import { FastifyPluginAsync } from 'fastify';
 import * as phh from 'pubsub-http-handler';
 import { handlePubSubMessage } from 'pubsub-http-handler';
 import { makeHandler } from './handler';
-import { SlackConfig, SlackRequestType } from './types';
+import { SlackApiOptions, SlackConfig, SlackRequestType } from './types';
 export { makeHandler } from './handler';
 
 export const makePubSubCloudFunctions = (
@@ -26,8 +26,17 @@ export const makePubSubServer = (
 
 export type PulumiCallbackFun = (message: any) => Promise<any>;
 
+export interface PulumiCallbackOptions {
+  /**
+   * These configuration options are only required when type is set to
+   * `api`.
+   */
+  apiOptions?: Omit<SlackApiOptions, 'token'>;
+}
+
 export const makePulumiCallback = (
   type: SlackRequestType,
+  options: PulumiCallbackOptions = {},
 ): PulumiCallbackFun => {
   if (type === 'api') {
     return async (message: any): Promise<void> => {
@@ -40,7 +49,7 @@ export const makePulumiCallback = (
         message,
         handler: makeHandler({
           type: 'api',
-          apiOptions: { token },
+          apiOptions: { token, ...options.apiOptions },
         }),
         parseJson: true,
       });
