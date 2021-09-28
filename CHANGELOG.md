@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.4.0](https://www.github.com/bjerkio/gcl-slack/compare/v1.3.0...v1.4.0) (2021-09-28)
+
+
+### Features
+
+* Add options for apiOptions to PulumiCallback ([c818444](https://www.github.com/bjerkio/gcl-slack/commit/c818444b4c931509373d7b28a58f287a73f1fd5e))
+
 ## [1.3.0](https://www.github.com/bjerkio/gcl-slack/compare/v1.2.2...v1.3.0) (2021-09-28)
 
 
