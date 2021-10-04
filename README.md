@@ -55,7 +55,7 @@ Function][pulumi-callback] or with [Firebase CLI][firebase], see the [examples].
 production loads, we'll add tutorials to make it easier to configure this**
 
 You'll need to configure a [sink] in order to make this work. The basic design
-of library, is that you'll create a [search query] which you add to a [sink] to
+of this library, is that you'll create a [search query] which you add to a [sink] to
 forward log entries to `gcl-slack`.
 
 [sink]: https://cloud.google.com/logging/docs/export/configure_export_v2
