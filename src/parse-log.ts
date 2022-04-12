@@ -9,7 +9,7 @@ export async function parseLog(
 
   if (
     [
-      'github.com/bjerkio/gcl-slack@v1',
+      'github.com/bjerkio/google-cloud-logger-slack@v1',
       'github.com/bjerkio/nestjs-slack@v1',
     ].includes(entry.operation?.producer) &&
     typeof entry.jsonPayload?.message !== 'string'
