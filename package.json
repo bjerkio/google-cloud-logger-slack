@@ -48,7 +48,7 @@
     "nock": "^13.1.3",
     "prettier": "^2.4.1",
     "ts-jest": "^27.1.4",
-    "typescript": "^3.9"
+    "typescript": "4.5.2"
   },
   "dependencies": {
     "@slack-wrench/jest-mock-web-client": "^1.3.0",
