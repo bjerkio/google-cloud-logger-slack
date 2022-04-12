@@ -8,7 +8,10 @@ export async function parseLog(
   }
 
   if (
-    entry.operation?.producer === 'github.com/bjerkio/nestjs-slack@v1' &&
+    [
+      'github.com/bjerkio/gcl-slack@v1',
+      'github.com/bjerkio/nestjs-slack@v1',
+    ].includes(entry.operation?.producer) &&
     typeof entry.jsonPayload?.message !== 'string'
   ) {
     return entry.jsonPayload?.message?.slack;

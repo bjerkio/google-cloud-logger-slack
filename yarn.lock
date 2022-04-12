@@ -334,6 +334,11 @@
     eslint-plugin-promise "^5.1.0"
     eslint-plugin-unicorn "^34.0.1"
 
+"@cobraz/prettier@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@cobraz/prettier/-/prettier-2.0.0.tgz#4219ed6024e484a3e4e08ad30b2ba0f33660573e"
+  integrity sha512-3Kug2HKJPW96INaTFGtqPP5tJaMRwhZkA2e2mLQ7REp2Wzd0Brmg4uL94zAFKCPEmX59iUTZF0GAHtljACqwWA==
+
 "@eslint/eslintrc@^0.4.3":
   version "0.4.3"
   resolved "https://registry.yarnpkg.com/@eslint/eslintrc/-/eslintrc-0.4.3.tgz#9e42981ef035beb3dd49add17acb96e8ff6f394c"

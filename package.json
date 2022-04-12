@@ -34,10 +34,13 @@
     "build": "tsc && tsc -p tsconfig.cjs.json",
     "lint": "eslint 'src/**/*.ts' --fix",
     "test": "jest --coverage src",
-    "prepare": "husky install .github/husky"
+    "prepare": "husky install .github/husky",
+    "format": "prettier --write src"
   },
+  "prettier": "@cobraz/prettier",
   "devDependencies": {
     "@bjerk/eslint-config": "^1.0.0",
+    "@cobraz/prettier": "^2.0.0",
     "@types/jest": "^27.0.2",
     "eslint": "^7.32.0",
     "husky": "^7.0.2",
