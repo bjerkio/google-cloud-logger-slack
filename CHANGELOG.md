@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.5.0](https://www.github.com/bjerkio/google-cloud-logger-slack/compare/v1.4.0...v1.5.0) (2022-04-12)
+
+
+### Features
+
+* Add support for gcl-slack producer ([a11c6cb](https://www.github.com/bjerkio/google-cloud-logger-slack/commit/a11c6cb014241f26d94bc9359f3a13e15feade45))
+
 ## [1.4.0](https://www.github.com/bjerkio/gcl-slack/compare/v1.3.0...v1.4.0) (2021-09-28)
 
 
