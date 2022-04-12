@@ -53,7 +53,7 @@ export interface SlackConfig {
 
 export type SlackMessageRequest = Partial<ChatPostMessageArguments>;
 
-export const LogEntry = rt.Record({
+export const logEntryRt = rt.Record({
   /**
    * Metadata
    */
@@ -94,7 +94,7 @@ export const LogEntry = rt.Record({
     .optional(),
 });
 
-export type LogEntry = rt.Static<typeof LogEntry>;
+export type LogEntry = rt.Static<typeof logEntryRt>;
 
 export interface SlackMethod {
   send(entry: LogEntry): Promise<void>;
