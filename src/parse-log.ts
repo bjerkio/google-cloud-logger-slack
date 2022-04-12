@@ -8,6 +8,7 @@ export async function parseLog(
   }
 
   if (
+    entry.operation?.producer &&
     [
       'github.com/bjerkio/google-cloud-logger-slack@v1',
       'github.com/bjerkio/nestjs-slack@v1',
