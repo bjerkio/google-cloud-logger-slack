@@ -39,10 +39,9 @@
   },
   "prettier": "@cobraz/prettier",
   "devDependencies": {
-    "@bjerk/eslint-config": "^1.0.0",
+    "@bjerk/eslint-config": "^2.0.1",
     "@cobraz/prettier": "^2.0.0",
     "@types/jest": "^27.0.2",
-    "eslint": "^7.32.0",
     "husky": "^7.0.4",
     "jest": "^27.2.0",
     "lint-staged": "^11.2.6",
