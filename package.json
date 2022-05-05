@@ -58,7 +58,7 @@
     "fastify": "^3.28.0",
     "pubsub-http-handler": "^3.0.1",
     "runtypes": "^6.5.1",
-    "ts-invariant": "^0.9.4"
+    "ts-invariant": "^0.10.2"
   },
   "lint-staged": {
     "*.ts": [
