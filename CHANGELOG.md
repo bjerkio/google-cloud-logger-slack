@@ -1,5 +1,16 @@
 # Changelog
 
+## [2.0.0](https://www.github.com/bjerkio/google-cloud-logger-slack/compare/v1.5.0...v2.0.0) (2022-06-13)
+
+
+### ⚠ BREAKING CHANGES
+
+* Upgrade to pubsub-http-handler@v4
+
+### Features
+
+* Upgrade to pubsub-http-handler@v4 ([5acf179](https://www.github.com/bjerkio/google-cloud-logger-slack/commit/5acf17943cd27244892337524a73741e2c832b31))
+
 ## [1.5.0](https://www.github.com/bjerkio/google-cloud-logger-slack/compare/v1.4.0...v1.5.0) (2022-04-12)
 
 
