@@ -10,7 +10,7 @@
   "source": "src/index.ts",
   "types": "./dist/index.d.ts",
   "engines": {
-    "node": ">=10"
+    "node": ">=16"
   },
   "keywords": [
     "google",
@@ -42,23 +42,23 @@
     "@bjerk/eslint-config": "^2.0.1",
     "@cobraz/prettier": "^2.0.0",
     "@slack-wrench/jest-mock-web-client": "^1.4.0",
-    "@tsconfig/node16": "^1.0.2",
-    "@types/jest": "^27.4.1",
+    "@tsconfig/node16": "^1.0.3",
+    "@types/jest": "^28.1.1",
     "husky": "^7.0.4",
-    "jest": "^27.5.1",
-    "lint-staged": "^12.3.7",
-    "nock": "^13.2.4",
+    "jest": "^28.1.1",
+    "lint-staged": "^13.0.1",
+    "nock": "^13.2.6",
     "prettier": "^2.6.2",
-    "ts-jest": "^27.1.4",
+    "ts-jest": "^28.0.4",
     "typescript": "4.5.2"
   },
   "dependencies": {
-    "@slack/web-api": "^6.7.1",
-    "axios": "^0.26.1",
-    "fastify": "^3.28.0",
-    "pubsub-http-handler": "^3.0.1",
+    "@slack/web-api": "^6.7.2",
+    "axios": "^0.27.2",
+    "fastify": "^4.0.2",
+    "pubsub-http-handler": "^4.1.0",
     "runtypes": "^6.5.1",
-    "ts-invariant": "^0.9.4"
+    "ts-invariant": "^0.10.3"
   },
   "lint-staged": {
     "*.ts": [
