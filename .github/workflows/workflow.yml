@@ -20,7 +20,7 @@ jobs:
           CI: true
       - run: yarn run build
       - uses: codecov/codecov-action@v3
-      - uses: GoogleCloudPlatform/release-please-action@v2.34
+      - uses: GoogleCloudPlatform/release-please-action@v3.6
         id: release
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
