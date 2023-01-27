@@ -68,10 +68,10 @@ This package solves two issues, a) forwarding information from Cloud Logger to
 Slack and b) offload requests to Slack API / webhooks.
 
 Sometimes we want to be notified on Slack when something happens – let's say a
-user is created or a customer subscribed to your service. Since out the output
-of our application is hooked into Cloud Logging, we can output a message or a
-JSON object (structured logging). With a sink, we can route log entites to this
-library through Google PubSub.
+user is created or a customer subscribed to your service. Since the _stdout_
+of our application is hooked into Cloud Logging by default, we can output a
+message or a JSON object (structured logging). With a _sink_, we can route
+log entites to this library through Google PubSub.
 
 To create more than just a simple message, you can use [slack object]s, which is
 the same as you would send to either the Slack API or webhooks to create
