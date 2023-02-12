@@ -1,4 +1,5 @@
 import { WebClient } from '@slack/web-api';
+import invariant from 'ts-invariant';
 import { parseLog } from '../parse-log';
 import type { LogEntry, SlackApiOptions, SlackMethod } from '../types';
 
@@ -11,9 +12,18 @@ export class SlackApiMethod implements SlackMethod {
 
   async send(entry: LogEntry): Promise<void> {
     const parsedLog = await parseLog(entry);
+
+    if (!parsedLog) {
+      return;
+    }
+
+    const channel = parsedLog.channel ?? this.config.defaultChannel;
+
+    invariant(channel, 'No channel provided for Slack API method.');
+
     await this.client.chat.postMessage({
-      channel: this.config.defaultChannel ?? '',
       ...parsedLog,
+      channel,
     });
   }
 }
