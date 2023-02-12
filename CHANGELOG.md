@@ -1,5 +1,12 @@
 # Changelog
 
+### [2.0.1](https://www.github.com/bjerkio/google-cloud-logger-slack/compare/v2.0.0...v2.0.1) (2023-02-12)
+
+
+### Bug Fixes
+
+* require channel to be set for api method ([7d512b6](https://www.github.com/bjerkio/google-cloud-logger-slack/commit/7d512b6a81a351d71c8cc4bfe46e1d1210d9d2ce))
+
 ## [2.0.0](https://www.github.com/bjerkio/google-cloud-logger-slack/compare/v1.5.0...v2.0.0) (2022-06-13)
 
 
