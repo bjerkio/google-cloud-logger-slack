@@ -1,8 +1,13 @@
-import { FastifyPluginAsync } from 'fastify';
+import { FastifyBaseLogger, FastifyPluginAsync } from 'fastify';
 import * as phh from 'pubsub-http-handler';
 import { handlePubSubMessage } from 'pubsub-http-handler';
 import { makeHandler } from './handler';
-import { SlackApiOptions, SlackConfig, SlackRequestType } from './types';
+import {
+  LogEntry,
+  SlackApiOptions,
+  SlackConfig,
+  SlackRequestType,
+} from './types';
 export { makeHandler } from './handler';
 
 export const makePubSubCloudFunctions = (
@@ -15,18 +20,12 @@ export const fastifyPlugin: FastifyPluginAsync<SlackConfig> = async (
   fastify,
   config,
 ) => {
-  return phh.pubSubFastifyPlugin(fastify, { handler: makeHandler(config) });
+  return phh.pubSubFastifyPlugin(fastify, {
+    handler: makeHandler<null, FastifyBaseLogger>(config),
+  });
 };
 
-export const makePubSubServer = (
-  config: SlackConfig,
-): phh.CreatePubSubHandlerResponse => {
-  return phh.createPubSubServer(makeHandler(config));
-};
-
-export type PulumiCallbackFun = (
-  message: phh.PubSubMessageType,
-) => Promise<void>;
+export type PulumiCallbackFun = (message: phh.PubSubMessage) => Promise<void>;
 
 export interface PulumiCallbackOptions {
   /**
@@ -41,7 +40,7 @@ export const makePulumiCallback = (
   options: PulumiCallbackOptions = {},
 ): PulumiCallbackFun => {
   if (type === 'api') {
-    return async (message: phh.PubSubMessageType): Promise<void> => {
+    return async (message: phh.PubSubMessage): Promise<void> => {
       const token = process.env.SLACK_TOKEN;
       if (!token) {
         throw new Error('Slack token is missing');
@@ -54,22 +53,26 @@ export const makePulumiCallback = (
           apiOptions: { token, ...options.apiOptions },
         }),
         parseJson: true,
+        context: null,
+        log: null,
       });
     };
   } else if (type === 'webhook') {
-    return async (message: phh.PubSubMessageType): Promise<void> => {
+    return async (message: phh.PubSubMessage): Promise<void> => {
       const url = process.env.WEBHOOK_URL;
       if (!url) {
         throw new Error('Slack webhook URL is missing');
       }
 
-      await handlePubSubMessage({
+      await handlePubSubMessage<LogEntry, null, null>({
         message,
-        handler: makeHandler({
+        handler: makeHandler<null, null>({
           type: 'webhook',
           webhookOptions: { url },
         }),
         parseJson: true,
+        context: null,
+        log: null,
       });
     };
   }
