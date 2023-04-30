@@ -34,7 +34,6 @@
     "build": "tsc && tsc -p tsconfig.cjs.json",
     "lint": "eslint 'src/**/*.ts' --fix",
     "test": "jest --coverage src",
-    "prepare": "husky install .github/husky",
     "format": "prettier --write src"
   },
   "prettier": "@cobraz/prettier",
