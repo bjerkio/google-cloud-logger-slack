@@ -24,7 +24,9 @@ export const makePubSubServer = (
   return phh.createPubSubServer(makeHandler(config));
 };
 
-export type PulumiCallbackFun = (message: any) => Promise<any>;
+export type PulumiCallbackFun = (
+  message: phh.PubSubMessageType,
+) => Promise<void>;
 
 export interface PulumiCallbackOptions {
   /**
@@ -39,7 +41,7 @@ export const makePulumiCallback = (
   options: PulumiCallbackOptions = {},
 ): PulumiCallbackFun => {
   if (type === 'api') {
-    return async (message: any): Promise<void> => {
+    return async (message: phh.PubSubMessageType): Promise<void> => {
       const token = process.env.SLACK_TOKEN;
       if (!token) {
         throw new Error('Slack token is missing');
@@ -55,7 +57,7 @@ export const makePulumiCallback = (
       });
     };
   } else if (type === 'webhook') {
-    return async (message: any): Promise<void> => {
+    return async (message: phh.PubSubMessageType): Promise<void> => {
       const url = process.env.WEBHOOK_URL;
       if (!url) {
         throw new Error('Slack webhook URL is missing');

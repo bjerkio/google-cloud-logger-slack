@@ -1,7 +1,7 @@
 /* istanbul ignore file */
 import { LogEntry } from '../types';
 
-export function createLogEntry(payload: any): LogEntry {
+export function createLogEntry(payload: unknown): LogEntry {
   if (typeof payload === 'string') {
     return {
       insertId: 'insertId',

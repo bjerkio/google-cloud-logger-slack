@@ -78,19 +78,13 @@ export const logEntryRt = rt.Record({
   jsonPayload: rt
     .Record({
       slack: rt.Guard((x): x is SlackMessageRequest => true),
+      message: rt.String.Or(
+        rt.Record({
+          slack: rt.Guard((x): x is SlackMessageRequest => true),
+        }),
+      ).optional(),
     })
-    .And(
-      rt
-        .Record({
-          message: rt.String.Or(
-            rt.Record({
-              slack: rt.Guard((x): x is SlackMessageRequest => true),
-            }),
-          ),
-        })
-        .asPartial(),
-    )
-    .And(rt.Unknown)
+    .Or(rt.Unknown)
     .optional(),
 });
 
