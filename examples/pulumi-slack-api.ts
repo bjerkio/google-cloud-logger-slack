@@ -4,13 +4,13 @@ import { makePulumiCallback } from 'gcl-slack';
 
 const name = 'slack';
 
-export const topic = new gcp.pubsub.Topic(name, {}, { provider });
+export const topic = new gcp.pubsub.Topic(name, {});
 
 const config = new pulumi.Config(name);
 
 topic.onMessagePublished(name, {
   region: 'europe-west1',
-  runtime: 'nodejs14',
+  runtime: 'nodejs18',
   environmentVariables: {
     SLACK_TOKEN: config.require('token'),
   },
@@ -18,7 +18,8 @@ topic.onMessagePublished(name, {
 });
 
 const logSink = new gcp.logging.ProjectSink(name, {
-  filter: 'operation.producer="github.com/bjerkio/nestjs-slack@v1"',
+  filter:
+    'operation.producer="github.com/bjerkio/google-cloud-logger-slack@v1"',
   destination: pulumi.interpolate`pubsub.googleapis.com/${topic.id}`,
 });
 
