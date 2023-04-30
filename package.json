@@ -54,7 +54,7 @@
   },
   "dependencies": {
     "@slack/web-api": "^6.7.2",
-    "axios": "^0.27.2",
+    "axios": "^1.0.0",
     "fastify": "^4.13.0",
     "pubsub-http-handler": "^4.1.0",
     "runtypes": "^6.5.1",
