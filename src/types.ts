@@ -91,5 +91,5 @@ export const logEntryRt = rt.Record({
 export type LogEntry = rt.Static<typeof logEntryRt>;
 
 export interface SlackMethod {
-  send(entry: LogEntry): Promise<void>;
+  send(entry: LogEntry): Promise<{ success: boolean }>;
 }

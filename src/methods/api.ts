@@ -10,11 +10,11 @@ export class SlackApiMethod implements SlackMethod {
     this.client = new WebClient(config.token, config.clientOptions);
   }
 
-  async send(entry: LogEntry): Promise<void> {
+  async send(entry: LogEntry): Promise<{ success: boolean }> {
     const parsedLog = await parseLog(entry);
 
     if (!parsedLog) {
-      return;
+      return { success: false };
     }
 
     const channel = parsedLog.channel ?? this.config.defaultChannel;
@@ -25,5 +25,7 @@ export class SlackApiMethod implements SlackMethod {
       ...parsedLog,
       channel,
     });
+
+    return { success: true };
   }
 }
