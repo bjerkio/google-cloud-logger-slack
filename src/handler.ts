@@ -4,7 +4,9 @@ import { SlackApiMethod } from './methods/api';
 import { SlackWebhookMethod } from './methods/webhook';
 import { LogEntry, SlackConfig, SlackMethod } from './types';
 
-export function makeHandler(config: SlackConfig): PubSubHandler<LogEntry> {
+export function makeHandler<Context = null, Logger = null>(
+  config: SlackConfig,
+): PubSubHandler<LogEntry, Context, Logger> {
   if (config.type !== 'api' && config.type !== 'webhook') {
     throw new Error('Slack config type was neither set to `api` nor `webhook`');
   }
