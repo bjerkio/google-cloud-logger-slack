@@ -1,5 +1,23 @@
 # Changelog
 
+## [3.0.0](https://github.com/bjerkio/google-cloud-logger-slack/compare/v2.0.1...v3.0.0) (2023-04-30)
+
+
+### ⚠ BREAKING CHANGES
+
+* Drops support for `makePubSubServer`. See https://github.com/simenandre/pubsub-http-handler/pull/255
+* Dropping axios in favor of undici might break tests. For example, if using nock. See https://github.com/nock/nock/issues/2183
+
+### Features
+
+* improve log parser ([b107e89](https://github.com/bjerkio/google-cloud-logger-slack/commit/b107e89bed4d8aa0f69e85040e20185c4537db15))
+
+
+### Code Refactoring
+
+* bump pubsub-http-handler to v5 ([a7bf4a7](https://github.com/bjerkio/google-cloud-logger-slack/commit/a7bf4a7ebdf9364b04caff723d955ca5b0287ed6))
+* drop axios for undici/fetch ([4b3de5b](https://github.com/bjerkio/google-cloud-logger-slack/commit/4b3de5b8b8e482ed5987e41ee3080059a1060a73))
+
 ### [2.0.1](https://www.github.com/bjerkio/google-cloud-logger-slack/compare/v2.0.0...v2.0.1) (2023-02-12)
 
 
