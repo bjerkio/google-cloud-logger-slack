@@ -20,11 +20,13 @@ jobs:
           CI: true
       - run: yarn run build
       - uses: codecov/codecov-action@v3
-      - uses: GoogleCloudPlatform/release-please-action@v2.34
+      - name: Analyse commits and open PR or prepare release 📦
+        uses: google-github-actions/release-please-action@v3
         id: release
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.BJERKBOT_GITHUB_TOKEN }}
           release-type: node
+          package-name: gcl-slack
       - if: ${{ steps.release.outputs.release_created }}
         run: yarn publish
         env:
