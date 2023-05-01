@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.1.0](https://github.com/bjerkio/google-cloud-logger-slack/compare/v3.0.0...v3.1.0) (2023-05-01)
+
+
+### Features
+
+* add docker setup ([327a77d](https://github.com/bjerkio/google-cloud-logger-slack/commit/327a77d03e0f48b6a97ae6324c751a3d71b5bdaa))
+
 ## [3.0.0](https://github.com/bjerkio/google-cloud-logger-slack/compare/v2.0.1...v3.0.0) (2023-04-30)
 
 
