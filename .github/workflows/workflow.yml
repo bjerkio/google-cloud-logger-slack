@@ -45,7 +45,7 @@ jobs:
 
     env:
       GHCR_IMAGE_NAME: ghcr.io/${{ github.repository }}
-      DOCKER_IMAGE_NAME: bjerkbot/${{ github.repository }}
+      DOCKER_IMAGE_NAME: docker.io/bjerkbot/google-cloud-logger-slack
 
     steps:
       - name: Checkout 🛎️
