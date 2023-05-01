@@ -56,7 +56,8 @@ jobs:
         uses: docker/metadata-action@v4
         with:
           images: ${{ env.GHCR_IMAGE_NAME }}
-          latest: true
+          flavor: |
+            latest=true
             
 
       - name: Set up Docker Buildx 🔨
