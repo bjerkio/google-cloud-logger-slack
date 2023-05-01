@@ -27,10 +27,6 @@ jobs:
           token: ${{ secrets.BJERKBOT_GITHUB_TOKEN }}
           release-type: node
           package-name: gcl-slack
-      - if: ${{ steps.release.outputs.release_created }}
-        run: yarn publish
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
   build-container:
     name: Build container
@@ -39,13 +35,10 @@ jobs:
     permissions:
       contents: read
       packages: write
-      # This is used to complete the identity challenge
-      # with sigstore/fulcio when running outside of PRs.
       id-token: write
 
     env:
       GHCR_IMAGE_NAME: ghcr.io/${{ github.repository }}
-      DOCKER_IMAGE_NAME: docker.io/bjerkbot/google-cloud-logger-slack
 
     steps:
       - name: Checkout 🛎️
@@ -55,9 +48,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v4
         with:
-          images: |
-            ${{ env.GHCR_IMAGE_NAME }}
-            ${{ env.DOCKER_IMAGE_NAME }}
+          images: ${{ env.GHCR_IMAGE_NAME }}
           flavor: |
             latest=true
 
@@ -72,18 +63,12 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Log into Docker Hub registry
-        uses: docker/login-action@v2
-        with:
-          username: bjerkbot
-          password: ${{ secrets.DOCKER_HUB_TOKEN }}
-
       - name: Build Docker 🛠
         uses: docker/build-push-action@v4
         with:
           context: ./
           file: ./Dockerfile
-          push: true
+          push: false
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
           cache-from: type=gha

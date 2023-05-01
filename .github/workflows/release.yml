@@ -1,0 +1,104 @@
+name: Release to NPM
+
+on:
+  release:
+    types: [published]
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v3
+
+      - name: Use Node LTS ✨
+        uses: actions/setup-node@v3
+        with:
+          node-version: lts/*
+          registry-url: https://registry.npmjs.org
+          cache: yarn
+
+      - name: Install dependencies 📦️
+        run: yarn install --frozen-lockfile
+
+      - name: Build 🔨
+        run: yarn build
+
+      - name: Get version from git tag 🏷️
+        id: version
+        uses: jannemattila/get-version-from-tag@v1
+
+      - name: Set version to release tag 📝
+        run:
+          yarn version --no-commit-hooks --no-git-tag-version --new-version ${{
+          steps.version.outputs.version }}
+
+      - name: Publish 🚀
+        run: yarn publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Push version changes to main branch
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: 'chore: release ${{ github.event.release.tag_name }}'
+          branch: main
+          file_pattern: package.json
+
+  build-container:
+    name: Build container
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      packages: write
+      id-token: write
+
+    env:
+      GHCR_IMAGE_NAME: ghcr.io/${{ github.repository }}
+      DOCKER_IMAGE_NAME: docker.io/bjerkbot/google-cloud-logger-slack
+
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v3
+
+      - name: Docker meta 🏷
+        id: meta
+        uses: docker/metadata-action@v4
+        with:
+          images: |
+            ${{ env.GHCR_IMAGE_NAME }}
+            ${{ env.DOCKER_IMAGE_NAME }}
+          flavor: |
+            latest=true
+
+      - name: Set up Docker Buildx 🔨
+        id: buildx
+        uses: docker/setup-buildx-action@v2
+
+      - name: Log into GHCR registry
+        uses: docker/login-action@v2
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Log into Docker Hub registry
+        uses: docker/login-action@v2
+        with:
+          username: bjerkbot
+          password: ${{ secrets.DOCKER_HUB_TOKEN }}
+
+      - name: Build Docker 🛠
+        uses: docker/build-push-action@v4
+        with:
+          context: ./
+          file: ./Dockerfile
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
