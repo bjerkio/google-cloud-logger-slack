@@ -58,7 +58,6 @@ jobs:
           images: ${{ env.GHCR_IMAGE_NAME }}
           flavor: |
             latest=true
-            
 
       - name: Set up Docker Buildx 🔨
         id: buildx
@@ -93,4 +92,4 @@ jobs:
           docker buildx imagetools create \
             --tag ${{ env.DOCKER_IMAGE_NAME }}:latest \
             --tag ${{ env.DOCKER_IMAGE_NAME }}:1.0.0 \
-            ${{ env.GHCR_IMAGE_NAME }}:latest
+            ${{ env.GHCR_IMAGE_NAME }}:${{ steps.meta.outputs.version }}
