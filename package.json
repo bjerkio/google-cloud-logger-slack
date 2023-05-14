@@ -38,7 +38,7 @@
   },
   "prettier": "@cobraz/prettier",
   "devDependencies": {
-    "@bjerk/eslint-config": "4.1.0",
+    "@bjerk/eslint-config": "^4.1.0",
     "@cobraz/prettier": "^2.0.0",
     "@slack-wrench/jest-mock-web-client": "^1.4.0",
     "@tsconfig/node16": "^1.0.3",
@@ -56,7 +56,7 @@
     "nock": "^13.3.0",
     "prettier": "^2.8.7",
     "ts-jest": "^29.0.0",
-    "typescript": "5.0.4"
+    "typescript": "^5.0.4"
   },
   "dependencies": {
     "@slack/web-api": "^6.7.2",
