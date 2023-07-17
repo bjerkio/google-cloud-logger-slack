@@ -56,7 +56,7 @@
     "prettier": "^2.8.7",
     "ts-jest": "^29.0.0",
     "typescript": "^5.0.4",
-    "@simenandre/prettier": "3.0.2"
+    "@simenandre/prettier": "5.0.0"
   },
   "dependencies": {
     "@slack/web-api": "^6.7.2",
