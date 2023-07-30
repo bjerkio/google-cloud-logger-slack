@@ -41,8 +41,24 @@ well-formatted Slack messages.
 
 - Supports Slack webhook and the Slack API ⚙️
 - [Slack blocks] 📦
+- Sends logs to Slack from all services in your project, including Kubernetes 📬
 
 ### :space_invader: &nbsp; Usage
+
+This project can be deployed using Docker or using Cloud Function (v1).
+We recommend using Docker, hosted on Google Cloud Run from GitHub Container Registry.
+
+```
+docker pull ghcr.io/bjerkio/google-cloud-logger-slack:v3.1.0
+```
+
+You can find examples on how to deploy this project in the [examples] folder, there are both [terraform] and [pulumi] examples
+
+[terraform]: ./examples/terraform
+[docker]: ./examples/docker
+
+If you want to use the Cloud Function, you can use the following command to
+install it to your project:
 
 ```shell
 ▶ yarn add gcl-slack
