@@ -40,7 +40,7 @@ function makeSlackOptions(): SlackConfig {
 async function makeServer() {
   const app = fastify();
 
-  app.register(fastifyPlugin, makeSlackOptions());
+  await app.register(fastifyPlugin, makeSlackOptions());
 
   await app.listen({
     port: Number(process.env.PORT) || 3000,
@@ -48,4 +48,4 @@ async function makeServer() {
   });
 }
 
-makeServer();
+void makeServer();

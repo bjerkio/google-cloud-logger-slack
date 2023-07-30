@@ -2,8 +2,6 @@ import { fetch } from 'undici';
 import { parseLog } from '../parse-log';
 import type { LogEntry, SlackMethod, SlackWebhookOptions } from '../types';
 
-export type WebhookResponse = 'ok' | string;
-
 export class SlackWebhookMethod implements SlackMethod {
   constructor(private readonly config: SlackWebhookOptions) {}
 
