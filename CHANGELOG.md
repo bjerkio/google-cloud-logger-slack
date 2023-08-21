@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.1.1](https://github.com/bjerkio/google-cloud-logger-slack/compare/v3.1.0...v3.1.1) (2023-08-21)
+
+
+### Bug Fixes
+
+* **deps:** update dependency pubsub-http-handler to v6 ([#223](https://github.com/bjerkio/google-cloud-logger-slack/issues/223)) ([b34a7e1](https://github.com/bjerkio/google-cloud-logger-slack/commit/b34a7e1aeea7e7402ea7a89057d0e9fd36246d30))
+
 ## [3.1.0](https://github.com/bjerkio/google-cloud-logger-slack/compare/v3.0.0...v3.1.0) (2023-05-01)
 
 
