@@ -19,7 +19,7 @@ jobs:
         env:
           CI: true
       - run: yarn run build
-      - uses: codecov/codecov-action@v3
+      - uses: codecov/codecov-action@v4
       - name: Analyse commits and open PR or prepare release 📦
         uses: google-github-actions/release-please-action@v3
         id: release
