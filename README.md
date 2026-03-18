@@ -67,9 +67,6 @@ install it to your project:
 You can deploy however you want, with Pulumi's [Callback
 Function][pulumi-callback] or with [Firebase CLI][firebase], see the [examples].
 
-**We are currently building this library out, and once things are ready for
-production loads, we'll add tutorials to make it easier to configure this**
-
 You'll need to configure a [sink] in order to make this work. The basic design
 of this library, is that you'll create a [search query] which you add to a [sink] to
 forward log entries to `gcl-slack`.
