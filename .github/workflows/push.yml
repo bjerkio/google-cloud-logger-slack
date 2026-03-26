@@ -21,7 +21,7 @@ jobs:
       - run: yarn run build
       - uses: codecov/codecov-action@v3
       - name: Analyse commits and open PR or prepare release 📦
-        uses: google-github-actions/release-please-action@v3
+        uses: googleapis/release-please-action@v3
         id: release
         with:
           token: ${{ secrets.BJERKBOT_GITHUB_TOKEN }}
