@@ -43,7 +43,7 @@
     "undici": "^5.22.0"
   },
   "devDependencies": {
-    "@bjerk/eslint-config": "^5.4.0",
+    "@bjerk/eslint-config": "^6.0.0",
     "@simenandre/prettier": "5.0.0",
     "@slack-wrench/jest-mock-web-client": "^1.4.0",
     "@tsconfig/node16": "^1.0.3",
